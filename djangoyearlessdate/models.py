@@ -33,11 +33,6 @@ class YearlessDateField(models.Field):
     def get_internal_type(self):
         return 'CharField'
 
-    def value_to_string(self, obj):
-        "For serialization"
-        value = self._get_val_from_obj(obj)
-        return self.get_db_prep_value(value)
-
     def formfield(self, **kwargs):
         # This is a fairly standard way to set up some defaults
         # while letting the caller override them.
